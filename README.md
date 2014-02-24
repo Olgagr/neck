@@ -36,6 +36,10 @@ In this documentation examples are written in [Jade Templating Engine](http://ja
 
 ### Neck.DI
 
+Neck dependency injection object is responsible to load controllers, helpers and templates. Other parts of Neck 
+always use this object to load dependencies, so it gives possiblity to change default behavoir for other 
+systems than CommonJS or global scope dependency. 
+
 Parameters:
 
 * `controllerPrefix`: [string], default: `controllers` 
@@ -60,9 +64,6 @@ Methods:
       as `window.App.Example`. 
     * Finally, when first and second try will fail, it will rise an error.
     * **Loading templates always done**: Template can be plain text. Function will not rise error after two above cases and return `route` parameter as string.
-
-When your application environment use other than CommonJS or global scope dependency injection you can easily 
-overwrite `load` function. As is written above, Neck always sends information about what kind of dependency is needed with `type` property in `options` (second argument).
 
 ### Neck.Controller
 
